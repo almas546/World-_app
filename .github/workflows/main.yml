@@ -1,0 +1,29 @@
+print("Hello World")
+
+name: Python Hello World CI/CD
+
+on:
+  push:
+    branches:
+      - main  # Adjust to your main branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x  # Choose the Python version you want
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt  # If you have dependencies
+
+    - name: Run Python Hello World
+      run: python app.py
+
+# Add deployment steps if needed
